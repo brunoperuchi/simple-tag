@@ -1,21 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <MakeTag />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MakeTag from "./components/MakeTag.vue";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MakeTag
   }
 }
 </script>
 
 <style>
 #app {
+  margin: auto;
+  max-width: 900px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
