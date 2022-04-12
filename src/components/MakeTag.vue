@@ -20,7 +20,7 @@
         :noCircle="true"
         :noSquare="true" />
     <input type="text" v-model="name" placeholder="Nome">
-    <textarea v-model="role" placeholder="Função" />
+    <input type="text" v-model="role" placeholder="Função" />
     <div ref="tag" class="tag" :style="`${tagModel ? `background-image: url(${tagModel})`: ''}`">
       <img class="photo" v-if="photo" :src="photo">
       <div class="text">
@@ -28,7 +28,7 @@
         <p class="role">{{role}}</p>
       </div>
     </div>
-    <button v-if="tagModel" @click="downloadPDF">Gerar PDF</button>
+    <button @click="downloadPDF">Gerar PDF</button>
   </div>
 </template>
 
@@ -104,11 +104,43 @@ export default {
 }
 
 .make-tag {
+  background: #313131;
+  padding: 10px;
+  border-radius: 10px;
   margin: auto;
-  display: flex;
-  flex-flow: wrap column;
+  display: grid;
+  row-gap: 10px;
+  grid-template-rows: repeat(5, 1fr) 9fr 1fr;
   max-width: 600px;
   min-width: 210px;
+  height: 90vh;
+}
+
+.header {
+  color: #fff;
+}
+
+button {
+  border: none;
+  background: #727272;
+  font-size: 15pt;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #161616;
+  color: #fff;
+}
+
+input {
+  background: #3d3d3d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  text-align: center;
+  font-size: 15pt;
 }
 
 .tag {
@@ -118,7 +150,7 @@ export default {
   align-items: center;
   background-size: contain;
   width: 55mm;
-  height: 86mm;
+  height: 85mm;
 }
 
 .photo {
@@ -138,6 +170,5 @@ export default {
 
 .role {
   font-size: 9pt;
-  white-space: pre-line;
 }
 </style>
